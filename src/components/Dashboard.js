@@ -132,11 +132,7 @@ function Dashboard() {
     newArr.find(el=> el.name ==e.target.value).value = e.target.value ==="fuel" ? fuel : e.target.value ==="grocery" ? grocery :  e.target.value ==="movie" ? movie :  e.target.value ==="loan" ? loan : 
      e.target.value ==="medical" ? medical : other
 
-     setChecked(newArr)
-  //   setChecked(prevState => ({
-  //     ...prevState,      
-  //     [e.target.value]: e.target.checked, 
-  // }))    
+     setChecked(newArr)    
   }
   
   var curr = new Date; // get current date
@@ -144,13 +140,6 @@ function Dashboard() {
   var last = first + 6; // last day is the first day + 6
   var firstday;
   var lastday 
-
-  // useEffect(()=>{
-  //    firstday = new Date(curr.setDate(first)).toLocaleDateString('en-CA');
-  //    lastday = new Date(curr.setDate(last)).toLocaleDateString('en-CA');
-  //   setDashFromDate(firstday);
-  //   setDashToDate(lastday);
-  // },[])
 
 const handleSumbit =async()=>{
   let user = localStorage.getItem('userId'); 
@@ -211,8 +200,7 @@ const getData =async()=>{
     let data = await axios.post(env.API_URL+"get-exp-inc/",param);
     setTableData(data.data.data);
   }
-  else{
-    // error='please select date'
+  else{    
     setIsError(true)
   }
 }
@@ -272,22 +260,8 @@ const getData =async()=>{
                 <div className="form-group">
                   <label>Description</label>
                   <input type="text" className="form-control" placeholder="Enter description" onChange={(e)=>setDesc(e.target.value)}/>    
-                </div>   
-                {/* <div className="form-group">
-                  <label>Monthly income</label>
-                  <input type="text" className="form-control" placeholder="Enter Monthly income" onChange={(e)=>setMonthlyIncome(e.target.value)}/>    
-                </div>                    */}
-              </div> 
-              {/* <div>               */}
-                {/* <div className="form-group">
-                  <label>To Date</label>
-                  <input type="date" className="form-control" placeholder="Enter income received date" onChange={(e)=>setToDate(e.target.value)}/>    
-                </div>      */}                              
-                {/* <div className="form-group">
-                  <label>Yearly income</label>
-                  <input type="text" className="form-control" placeholder="Enter Yearly income" onChange={(e)=>setYearlyIncome(e.target.value)}/>    
-                </div>   */}
-              {/* </div>                    */}
+                </div>                   
+              </div>               
             </div> 
           </TabPanel>
           <TabPanel value="Expense">
@@ -319,11 +293,7 @@ const getData =async()=>{
                   </div>
                 </div>                
               </div> 
-              <div>              
-                {/* <div className="form-group">
-                  <label>To Date</label>
-                  <input type="date" className="form-control" placeholder="Enter income received date" onChange={(e)=>setToDate(e.target.value)}/>    
-                </div>                    */}
+              <div>                              
                 <div className="form-group">
                 <FormLabel id="demo-radio-buttons-group-label">Category</FormLabel>
                 <FormGroup >
@@ -353,8 +323,7 @@ const getData =async()=>{
             <span style={{"color":"green"}}>{isSuccess ? "Data Inserted successfully" : ''}</span>
           </TabPanel>        
         </TabContext>
-        <div style={{"display":"flex","justifyContent":"flex-end"}}>      
-        {/* disabled={(isSubmit && expense.toString().length>0) || ((date.toLocaleDateString().length===0 && income==0))} */}
+        <div style={{"display":"flex","justifyContent":"flex-end"}}>              
           <button className='btn btn-success add'  onClick={() => handleSumbit()}>submit</button>  &nbsp;&nbsp;&nbsp;
           <button className='btn btn-danger add' onClick={() => setModalShow(false)}>close</button>  
         </div>
@@ -380,7 +349,6 @@ const getData =async()=>{
                 <td>{e.checked.map(el=>el.value > 0 ? el.name + ':' + el.value+' ' : ' ')}</td>
               </tr>
             }
-              
             )}
           </tbody>
         </table> 
@@ -391,20 +359,3 @@ const getData =async()=>{
 }
 
 export default Dashboard
-
-
-
-// <div className="form-group">
-//                 <FormLabel id="demo-radio-buttons-group-label">Category</FormLabel>
-//                   <RadioGroup
-//                     aria-labelledby="demo-radio-buttons-group-label"
-//                     defaultValue="fuel"
-//                     name="radio-buttons-group">
-//                     <FormControlLabel value="fuel" control={<Radio />} label="fuel" />
-//                     <FormControlLabel value="grocery" control={<Radio />} label="grocery" />
-//                     <FormControlLabel value="movie" control={<Radio />} label="movie" />
-//                     <FormControlLabel value="loan" control={<Radio />} label="loan" />
-//                     <FormControlLabel value="medical " control={<Radio />} label="medical" />
-//                     <FormControlLabel value="other" control={<Radio />} label="other" />
-//                   </RadioGroup>
-//                 </div>
