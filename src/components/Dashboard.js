@@ -15,6 +15,7 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import FormGroup from '@mui/material/FormGroup';
 import Checkbox from '@mui/material/Checkbox';
+import { useNavigate } from 'react-router-dom'
 
 function Dashboard() {  
   Modal.setAppElement('#root');  
@@ -25,6 +26,7 @@ function Dashboard() {
   // var last = first + 6; // last day is the first day + 6
   // var firstday;
   // var lastday;  
+  let navigate = useNavigate();
   let [isDateRange,seIsDateRange] =useState(true);
   let [isSubmit,setIsSubmit] = useState(true);
   let [isError,setIsError] = useState(false);
@@ -205,9 +207,14 @@ const getData =async()=>{
   }
 }
 
+
+let handleLogout =() =>{
+  navigate('/')
+}
+
   return (
     <>
-        <div className='dashboard'>Dashboard</div>        
+        <div className='dashboard'>Dashboard</div>   <button className='btn btn-danger logout'  onClick={() => handleLogout()}> Logout</button>     
         <button className='btn btn-success margin5Rem ' onClick={() => {setModalShow(true); setIsError(false); setIsSuccess(false);setExpense(0)}}>Add New Income/Expense</button>  
             <div className='form-group drop-down' >              
                 <Select

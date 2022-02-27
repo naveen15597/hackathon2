@@ -1,17 +1,24 @@
 import React, { useState } from 'react'
 import env from 'react-dotenv';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
     const [firstName,setFirstName] = useState("");
     const [lastName,setLastName] = useState("");
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+    let navigate = useNavigate();
     const handleSubmit =async()=>{
         let res = await axios.post(env.API_URL+"register/",{firstName,lastName,email,password});
-        if(res.data.status!=200){
-            alert(res.data.message);
-        }
+        alert(res.data.message);
+        navigate('/');
+        // if(res.data.status!=200){
+        //     alert(res.data.message);
+        // }
+        // else{
+        //     alert
+        // }
         
     }
   return (

@@ -104,3 +104,8 @@ body{
   background-color: cornsilk;  
   font-family: 'Righteous', cursive;
 }
+.logout{
+  position: absolute;
+  float: right;
+  right: 12rem;
+}
