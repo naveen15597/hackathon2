@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Shizuru&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 .App {
   text-align: center;
 }
@@ -35,4 +38,69 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* .form-group{
+  padding-left: 20rem;
+  padding-right: 20rem;
+} */
+
+
+.form-group{
+  padding-right: 6rem;
+}
+
+.dashboard{
+  font-size: xxx-large;
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  color: grey;
+}
+
+.header{
+  font-size: xxx-large;
+  text-align: center;
+  /* font-family: 'Shizuru', cursive; */
+  font-family: 'Lobster', cursive;
+}
+
+.add{
+  margin-top: 2rem;
+}
+
+.Login-div{
+  background: antiquewhite;
+  width: 30%;
+  border-radius: 25px;
+  padding: 14px;
+}
+
+.parent-div{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+input.form-control {
+  margin: 4px;
+}
+
+.calc{
+  margin: 4px;
+}
+
+.margin5Rem{
+  margin: 5rem
+}
+
+.table-data{
+  margin: 0 11rem 0 5rem;
+}
+
+.drop-down{
+  margin: 0 5rem 15px 5rem
+}
+
+body{
+  background-color: cornsilk;  
+  font-family: 'Righteous', cursive;
 }
